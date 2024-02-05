@@ -224,7 +224,7 @@ Questo git-template fornisce lo scaffold di una web application realizzata con L
 Si possono creare tutti insieme con:
 
 ```bash
-php artisan make:model NomeModello -rmsR
+php artisan make:model Event -rmsR
 ```
 
 -r o --resource indica se creare un controller di tipo Resource Controller
