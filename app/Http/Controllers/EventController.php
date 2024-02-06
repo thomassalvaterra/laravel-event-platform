@@ -26,11 +26,11 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Event $event)
     {
         $tags = tag::all();
 
-        return view("admin.events.create", compact("tags"));
+        return view("admin.events.create", compact("tags", "event"));
     }
 
     /**

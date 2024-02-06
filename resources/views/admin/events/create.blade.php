@@ -59,6 +59,14 @@
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="mb-3">
+                <label for="tags" class="form-label"><b>Select a Tag</b></label>
+                <select multiple name="tags[]" id="tags" class="form-select">
+                    @foreach ($tags as $tag)
+                    <option value="{{ $tag->id }}">{{ $tag->type }}</option>
+                    @endforeach
+                </select>
+            </div>
             <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary"><b>Insert
                         Event</b></button>
