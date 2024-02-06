@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid mt-4">
     <div class="row justify-content-center">
-        <h2>Modifica evento</h2>
+        <h2 class="text-center">Change Event</h2>
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -20,7 +20,7 @@
             @method('PUT')
             {{-- name description --}}
             <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
+                <label for="name" class="form-label"><b>Name</b></label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
                     value="{{ old('name') }}">
                 @error('name')
@@ -28,7 +28,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="date" class="form-label">Date</label>
+                <label for="date" class="form-label"><b>Date</b></label>
                 <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="date"
                     value="{{ old('date') }}">
                 @error('date')
@@ -36,7 +36,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="available_tickets" class="form-label">Available Tickets</label>
+                <label for="available_tickets" class="form-label"><b>Available Tickets</b></label>
                 <select class="form-select" name="available_tickets" id="available_tickets">
                     <option value="1000" @selected(old('type', $event->available_tickets) == '1000')>1000</option>
                     <option value="700" @selected(old('type', $event->available_tickets) == '700')>700</option>
@@ -45,7 +45,7 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
+                <label for="description" class="form-label"><b>Description</b></label>
                 <input type="text" class="form-control @error('description') is-invalid @enderror" id="description"
                     name="description" value="{{ old('description') }}">
                 @error('description')
@@ -53,7 +53,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="image" class="form-label">Image</label>
+                <label for="image" class="form-label"><b>Image</b></label>
                 <input type="text" class="form-control @error('image') is-invalid @enderror" id="image" name="image"
                     value="{{ old('image') }}">
                 @error('image')
@@ -61,15 +61,17 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="tags" class="form-label">seleziona le tags correlate</label>
+                <label for="tags" class="form-label"><b>Select a Tag</b></label>
                 <select multiple name="tags[]" id="tags" class="form-select">
-                    <option selected value="">Seleziona almeno un tag</option>
                     @foreach ($tags as $tag)
                     <option value="{{ $tag->id }}">{{ $tag->type }}</option>
                     @endforeach
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Inserisci</button>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary"><b>Insert Event</b></button>
+            </div>
+
         </form>
     </div>
 </div>
