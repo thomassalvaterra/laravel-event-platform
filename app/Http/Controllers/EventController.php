@@ -86,7 +86,7 @@ class EventController extends Controller
 
         $event->fill($validati);
         $event->update();
-        return redirect()->route("admin.event.index");
+        return redirect()->route("admin.event.show", $event->id);
     }
 
     /**

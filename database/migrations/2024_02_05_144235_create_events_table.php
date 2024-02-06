@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger("user_id")->nullable();
             $table->foreign("user_id")->references("id")->on("users")->nullOnDelete();
-            $table->bigInteger("tag_id");
             $table->string("name");
             $table->string("date");
             $table->integer("available_tickets");

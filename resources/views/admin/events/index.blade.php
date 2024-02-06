@@ -8,13 +8,11 @@
             <div class="card">
                 <div class="card-header text-center">{{ $event->name }}</div>
                 <div class="card-body text-center">{{ $event->date }}</div>
+                <div class="card-body text-center">{{ $event->available_tickets }}</div>
                 <div class="card-body text-center">
                     <img src="{{ $event->image }}" alt="image">
                 </div>
                 <div class="card-body text-center">{{ $event->description }}</div>
-                <h6 class="card-subtitle mb-2 text-muted text-center">
-                    {{ $event->tag ? $event->tag->type : 'senza tipologia' }}
-                </h6>
                 <div class="card-body text-center">
                     @if (count($event->tags) > 0)
                     <ul>
@@ -23,7 +21,7 @@
                         @endforeach
                     </ul>
                     @else
-                    <span>Non ci sono tipologie annesse</span>
+                    <span>Non ci sono tag annessi</span>
                     @endif
                 </div>
                 <a type="button" class="btn btn-primary" href="{{ route('admin.event.show', $event->id) }}">Show</a>
