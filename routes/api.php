@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use App\Http\Controllers\Api\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,15 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/prova', function () {
+    // $dati = [
+    //     "nome" => "Thomas",
+    //     "cognome" => "Salvaterra"
+    // ];
+
+    $dati = User::all();
+    return response()->json($dati);
+});
+
+Route::get('/events', [EventController::class, "index"]);
