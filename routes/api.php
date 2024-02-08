@@ -31,3 +31,4 @@ Route::get('/prova', function () {
 });
 
 Route::get('/events', [EventController::class, "index"]);
+Route::get('/events/{$id}', [EventController::class, "show"]);

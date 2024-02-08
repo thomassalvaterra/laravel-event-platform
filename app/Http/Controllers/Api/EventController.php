@@ -18,4 +18,15 @@ class EventController extends Controller
         ];
         return response()->json($data);
     }
+
+    // Metodo show che usa il success true/false
+    public function show($id)
+    {
+        $event = Event::with("User")->find($id);
+
+        return response()->json([
+            "success" => $event ? true : false,
+            "results" => $event ? $event : "Nessun evento corrisponde all'id"
+        ]);
+    }
 }
