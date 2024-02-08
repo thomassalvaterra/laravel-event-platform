@@ -22,14 +22,14 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Thomas',
                 'email' => 'thomassalvaterra@gmail.com',
-                'password' => 'prova123',
+                'password' => 'prova123prova',
             ],
         ];
         foreach ($users as $user) {
             $newUser = new User();
             $newUser->name = $user["name"];
             $newUser->email = $user["email"];
-            $newUser->password = Hash::make('prova123');
+            $newUser->password = Hash::make('prova123prova');
             $newUser->save();
         }
     }
